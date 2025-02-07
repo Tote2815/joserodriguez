@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi enamorada?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            margin: 10px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #si {
+            background-color: #ff6f61;
+            color: white;
+        }
+        #no {
+            background-color: #ffcccb;
+            color: #ff6f61;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .hearts span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url('https://www.transparentpng.com/thumb/heart/heart-png-icon-5.png') no-repeat center center;
+            background-size: cover;
+            animation: animate 5s linear infinite;
+        }
+        @keyframes animate {
+            0% {
+                transform: translateY(-10%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <!-- Corazones en movimiento -->
+        <span style="left: 5%; animation-delay: 0s;"></span>
+        <span style="left: 15%; animation-delay: 1s;"></span>
+        <span style="left: 25%; animation-delay: 2s;"></span>
+        <span style="left: 35%; animation-delay: 3s;"></span>
+        <span style="left: 45%; animation-delay: 4s;"></span>
+        <span style="left: 55%; animation-delay: 5s;"></span>
+        <span style="left: 65%; animation-delay: 6s;"></span>
+        <span style="left: 75%; animation-delay: 7s;"></span>
+        <span style="left: 85%; animation-delay: 8s;"></span>
+        <span style="left: 95%; animation-delay: 9s;"></span>
+    </div>
+
+    <div class="container">
+        <h1>¿Quieres ser mi enamorada?</h1>
+        <button id="si">¡Sí! 💖</button>
+        <button id="no">No 😢</button>
+    </div>
+
+    <script>
+        const siBtn = document.getElementById('si');
+        const noBtn = document.getElementById('no');
+
+        siBtn.addEventListener('click', () => {
+            alert('¡Eres la mejor decisión de mi vida! 💖');
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Cambia este enlace a algo más romántico
+        });
+
+        noBtn.addEventListener('click', () => {
+            alert('¡Oh no! 😢 Pero no te preocupes, seguiré intentándolo.');
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${Math.random() * (window.innerWidth - noBtn.offsetWidth)}px`;
+            noBtn.style.top = `${Math.random() * (window.innerHeight - noBtn.offsetHeight)}px`;
+        });
+
+        // Evitar que el usuario cambie de pestaña o cierre la ventana
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+</body>
+</html>
